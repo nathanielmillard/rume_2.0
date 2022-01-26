@@ -1,0 +1,21 @@
+@import '../../variables.scss';
+.Lobby {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+  height: 80vh;
+  width: 80vw;
+}
+
+.moodContainer {
+  height: 0vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+h2 {
+  margin: 2vh;
+  font-size: 2rem;
+}

@@ -1,0 +1,117 @@
+.anxiousRoom {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(92,73,36);
+  background: radial-gradient(circle, rgba(92,73,36,1) 0%, rgba(18,19,22,1) 100%);
+}
+
+#hex1 {
+  right: -11em;
+  top: 3em;
+  opacity: 0;
+  position: relative;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+}
+
+#hex2 {
+  right: -29em;
+  top: 15em;
+  opacity: 0;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+  position: relative;
+}
+
+#hex3 {
+  right: -50em;
+  top: 20em;
+  opacity: 0;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+  position: relative;
+}
+
+#hex4 {
+  right: 3em;
+  top: -6em;
+  opacity: 0;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+  position: relative;
+}
+
+#hex5 {
+  right: -20em;
+  top: 10em;
+  opacity: 0;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+  position: relative;
+}
+
+#hex6 {
+  right: 27em;
+  top: 25em;
+  opacity: 0;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+  position: relative;
+}
+
+#hex7 {
+  right: 56em;
+  top: 15em;
+  opacity: 0;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+  position: relative;
+}
+
+#hex8 {
+  right:43em;
+  top: 12em;
+  opacity: 0;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+  position: relative;
+}
+
+#hex9 {
+  right: 34em;
+  top: 2em;
+  opacity: 0;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+  position: relative;
+}
+
+#hex10 {
+  right: -50em;
+  opacity: 0;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+  position: relative;
+}
+
+#hex11 {
+  top:-20em;
+  right: -57em;
+  opacity: 0;
+  width: 23vh;
+  height: 20vh;
+  margin: 10vh 0;
+  position: relative;
+}
