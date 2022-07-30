@@ -1,4 +1,3 @@
-import React from 'react'
 import { RefCard } from '../../StyledComponents.js'
 
 const ReflectionCard = (props) => {
@@ -10,4 +9,4 @@ const ReflectionCard = (props) => {
     </RefCard>
   )
 }
-export default ReflectionCard;
+export default ReflectionCard

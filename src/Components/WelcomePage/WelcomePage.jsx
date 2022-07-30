@@ -1,12 +1,12 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react'
 import './WelcomePage.scss'
-import gsap from 'gsap';
+import gsap from 'gsap'
 
 const WelcomePage = () => {
   const animate = () => {
-    gsap.to(".logo", {duration: 3, fontSize: "30vw", ease: "power2", opacity: 100})
+    gsap.to('.logo', { duration: 3, fontSize: '30vw', ease: 'power2', opacity: 100 })
   }
-  useEffect(()=>{
+  useEffect(() => {
     animate()
   })
   return (

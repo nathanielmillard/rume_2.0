@@ -1,10 +1,10 @@
-import { Component } from 'react';
-import './ReflectionLibrary.scss';
-import { getReflections } from '../../apiCalls.js';
+import { Component } from 'react'
+import './ReflectionLibrary.scss'
+import { getReflections } from '../../apiCalls.js'
 import ReflectionCard from '../ReflectionCard/ReflectionCard.js'
 
 class ReflectionLibrary extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       reflections: [],
@@ -12,6 +12,7 @@ class ReflectionLibrary extends Component {
       errorMessage: ''
     }
   }
+
   createCards = () => {
     const reflectionCards = this.state.reflections.map(reflection => {
       return (
@@ -26,12 +27,14 @@ class ReflectionLibrary extends Component {
     })
     return reflectionCards
   }
-  async componentDidMount() {
+
+  async componentDidMount () {
     const reflections = await getReflections()
-    this.setState( {reflections} )
-    this.setState( {loadingMessage: ''})
+    this.setState({ reflections })
+    this.setState({ loadingMessage: '' })
   }
-  render() {
+
+  render () {
     return (
       <section data-testid='reflections'>
         { this.state.errorMessage && <h1>{this.state.errorMessage}</h1>}
