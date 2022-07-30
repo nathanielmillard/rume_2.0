@@ -1,14 +1,13 @@
-import React from 'react';
-import './anxiousAnimations.scss';
-import './FeelingRoom.scss';
+import React, { Component } from 'react'
+import './anxiousAnimations.scss'
+import './FeelingRoom.scss'
 
-import { Component } from 'react'
 import { MusicButton, NavButton } from '../../StyledComponents.js'
 
 import { createSadRoom, sadBGAnimation, sadDropAnimation } from './sadAnimations.js'
 import { createFineRoom, floatAnimation, fineBackgroundAnimation } from './fineAnimations.js'
-import { createAnxiousRoom, anxiousAnimation } from './anxiousAnimations.js';
-import { createAngryRoom, angryBGAnimation, angryBoxAnimation } from './angryAnimations.js'
+import { createAnxiousRoom, anxiousAnimation } from './anxiousAnimations.jsx'
+import { createAngryRoom, angryBGAnimation, angryBoxAnimation } from './angryAnimations.jsx'
 
 import music from '../../Assets/music.svg'
 import nature from '../../Assets/nature.svg'
@@ -16,66 +15,69 @@ import abstract from '../../Assets/abstract.svg'
 import play from '../../Assets/play.svg'
 import pause from '../../Assets/pause.svg'
 
-// import angryNature from '../../Assets/angryNature.wav' ;
-
-import angryNature from '../../Assets/angryNature.mp3' ;
-
-import fineNature from '../../Assets/fineNature.wav' ;
-import anxiousNature from '../../Assets/anxiousNature.wav';
-import sadNature from '../../Assets/sadNature.wav' ;
-import angryAbstract from '../../Assets/angryAbstract.mp3' ;
-import anxiousAbstract from '../../Assets/anxiousAbstract.wav' ;
-import sadAbstract from '../../Assets/sadAbstract.wav' ;
-import fineAbstract from '../../Assets/fineAbstract.wav' ;
+// import angryNature from '../../Assets/angryNature.wav'
+import angryNature from '../../Assets/angryNature.mp3'
+import fineNature from '../../Assets/fineNature.wav'
+import anxiousNature from '../../Assets/anxiousNature.wav'
+import sadNature from '../../Assets/sadNature.wav'
+import angryAbstract from '../../Assets/angryAbstract.mp3'
+import anxiousAbstract from '../../Assets/anxiousAbstract.wav'
+import sadAbstract from '../../Assets/sadAbstract.wav'
+import fineAbstract from '../../Assets/fineAbstract.wav'
 import angryMusic from '../../Assets/angryMusic.mp3'
 import anxiousMusic from '../../Assets/anxiousMusic.mp3'
 import sadMusic from '../../Assets/sadMusic.mp3'
 import fineMusic from '../../Assets/fineMusic.mp3'
 
 class FeelingRoom extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
-    this.state= {
+    this.state = {
       isFeeling: false,
       hasAudio: false,
       audio: '',
       isPlaying: false
     }
   }
+
   moveFineRoom = () => {
     fineBackgroundAnimation()
-    for(let i = 0; i < 13; i++){
-      let target = `#fineCircle${i}`
+    for (let i = 0; i < 13; i++) {
+      const target = `#fineCircle${i}`
       floatAnimation(target)
     }
   }
+
   moveAnxiousRoom = () => {
-    anxiousAnimation('#hex1', .74, 1, 1.8, .90)
-    anxiousAnimation('#hex2', .5, 1, .7, .45)
-    anxiousAnimation('#hex3', .6, .7, 3.4, 2)
-    anxiousAnimation('#hex4', .78, .2, .2, .75)
-    anxiousAnimation('#hex5', .67, .1, .1, 0)
-    anxiousAnimation('#hex6', .74, 1, 1.8, .90)
-    anxiousAnimation('#hex7', .86, 1, 1.8, .55)
-    anxiousAnimation('#hex8', .8, .5, 2, 1.5)
-    anxiousAnimation('#hex9', .5, 1, .7, .45)
-    anxiousAnimation('#hex10', .7, 1, 2.5, 2.5)
-    anxiousAnimation('#hex11', .49, .5, .3, 2.5)
+    anxiousAnimation('#hex1', 0.74, 1, 1.8, 0.90)
+    anxiousAnimation('#hex2', 0.5, 1, 0.7, 0.45)
+    anxiousAnimation('#hex3', 0.6, 0.7, 3.4, 2)
+    anxiousAnimation('#hex4', 0.78, 0.2, 0.2, 0.75)
+    anxiousAnimation('#hex5', 0.67, 0.1, 0.1, 0)
+    anxiousAnimation('#hex6', 0.74, 1, 1.8, 0.90)
+    anxiousAnimation('#hex7', 0.86, 1, 1.8, 0.55)
+    anxiousAnimation('#hex8', 0.8, 0.5, 2, 1.5)
+    anxiousAnimation('#hex9', 0.5, 1, 0.7, 0.45)
+    anxiousAnimation('#hex10', 0.7, 1, 2.5, 2.5)
+    anxiousAnimation('#hex11', 0.49, 0.5, 0.3, 2.5)
   }
+
   moveSadRoom = () => {
     sadBGAnimation()
     sadDropAnimation()
   }
+
   moveAngryRoom = () => {
     angryBGAnimation()
     angryBoxAnimation()
   }
+
   chooseRoomMood = () => {
-    if(this.props.mood === 'Angry') {
+    if (this.props.mood === 'Angry') {
       return createAngryRoom()
-    } else if(this.props.mood === 'Sad') {
+    } else if (this.props.mood === 'Sad') {
       return createSadRoom()
-    } else if(this.props.mood === 'Anxious'){
+    } else if (this.props.mood === 'Anxious') {
       return createAnxiousRoom()
     } else {
       return createFineRoom()
@@ -83,11 +85,11 @@ class FeelingRoom extends Component {
   }
 
   startAnimations = () => {
-    if(this.props.mood === 'Angry') {
+    if (this.props.mood === 'Angry') {
       return this.moveAngryRoom()
-    } else if(this.props.mood === 'Sad') {
+    } else if (this.props.mood === 'Sad') {
       return this.moveSadRoom()
-    } else if(this.props.mood === 'Anxious'){
+    } else if (this.props.mood === 'Anxious') {
       return this.moveAnxiousRoom()
     } else {
       return this.moveFineRoom()
@@ -95,84 +97,86 @@ class FeelingRoom extends Component {
   }
 
   startFeeling = () => {
-    this.setState({isFeeling: true})
+    this.setState({ isFeeling: true })
     this.startAnimations()
   }
 
   playSound = (e) => {
-    if(!this.state.hasAudio){
+    if (!this.state.hasAudio) {
       alert('Select a kind of audio')
-    } else if (e.target.id === 'svg'){
-      let audio = e.target.parentNode.parentNode.firstChild
+    } else if (e.target.id === 'svg') {
+      const audio = e.target.parentNode.parentNode.firstChild
       audio.play()
-      this.setState({isPlaying: true})
-    } else if (e.target.id === 'playButton'){
-      let audio = e.target.parentNode.firstChild
+      this.setState({ isPlaying: true })
+    } else if (e.target.id === 'playButton') {
+      const audio = e.target.parentNode.firstChild
       audio.play()
-      this.setState({isPlaying: true})
+      this.setState({ isPlaying: true })
     }
   }
 
   pauseSound = (e) => {
-    if(!this.state.hasAudio){
-        alert('No audio to pause')
-    } else if (e.target.id === 'svg'){
-      let audio = e.target.parentNode.parentNode.firstChild
+    if (!this.state.hasAudio) {
+      alert('No audio to pause')
+    } else if (e.target.id === 'svg') {
+      const audio = e.target.parentNode.parentNode.firstChild
       audio.pause()
-      this.setState({hasAudio: false, audio:'', isPlaying: false})
-    } else if (e.target.id === 'pauseButton'){
-      let audio = e.target.parentNode.firstChild
+      this.setState({ hasAudio: false, audio: '', isPlaying: false })
+    } else if (e.target.id === 'pauseButton') {
+      const audio = e.target.parentNode.firstChild
       audio.pause()
-      this.setState({hasAudio: false, audio:'', isPlaying: false})
+      this.setState({ hasAudio: false, audio: '', isPlaying: false })
     }
   }
+
   changeAudio = (e) => {
     let specificAudio
-    if (this.props.mood === 'Sad'){
-      if (e.target.id === 'nature'){
+    if (this.props.mood === 'Sad') {
+      if (e.target.id === 'nature') {
         specificAudio = sadNature
-      } else if (e.target.id === 'music'){
+      } else if (e.target.id === 'music') {
         specificAudio = sadMusic
       } else {
         specificAudio = sadAbstract
       }
     }
-    if (this.props.mood === 'Anxious'){
-      if (e.target.id === 'nature'){
+    if (this.props.mood === 'Anxious') {
+      if (e.target.id === 'nature') {
         specificAudio = anxiousNature
-      } else if (e.target.id === 'music'){
+      } else if (e.target.id === 'music') {
         specificAudio = anxiousMusic
       } else {
         specificAudio = anxiousAbstract
       }
     }
-    if (this.props.mood === 'Angry'){
-      if (e.target.id === 'nature'){
+    if (this.props.mood === 'Angry') {
+      if (e.target.id === 'nature') {
         specificAudio = angryNature
-      } else if (e.target.id === 'music'){
+      } else if (e.target.id === 'music') {
         specificAudio = angryMusic
       } else {
         specificAudio = angryAbstract
       }
     }
     if (this.props.mood === 'Fine') {
-      if (e.target.id.includes('nature')){
+      if (e.target.id.includes('nature')) {
         specificAudio = fineNature
-      } else if (e.target.id.includes('music')){
+      } else if (e.target.id.includes('music')) {
         specificAudio = fineMusic
       } else {
         specificAudio = fineAbstract
       }
     }
     if (this.state.isPlaying) {
-      let audio = document.querySelector('.audio').parentNode
+      const audio = document.querySelector('.audio').parentNode
       audio.load()
       audio.play()
     }
-    this.setState({hasAudio: true, audio:specificAudio})
+    this.setState({ hasAudio: true, audio: specificAudio })
   }
-  render(){
-    let instructions = (
+
+  render () {
+    const instructions = (
       <section className='directions'>
         <h1> Welcome to the feeling room </h1>
         <p>
@@ -187,20 +191,20 @@ class FeelingRoom extends Component {
         <NavButton data-testid="startButton" onClick={this.startFeeling}> Get Started </NavButton>
       </section>
     )
-    let audio;
-    if(this.state.audio.includes('.wav')){
+    let audio
+    if (this.state.audio.includes('.wav')) {
       audio = (
-        <audio> 
-        <source src={this.state.audio} type="audio/wav" className="audio"/> 
-        Your Browser Doesn't Support This Audio 
+        <audio>
+        <source src={this.state.audio} type="audio/wav" className="audio"/>
+        Your Browser Doesn't Support This Audio
         </audio>
       )
     }
-    if(this.state.audio.includes('.mp3')){
+    if (this.state.audio.includes('.mp3')) {
       audio = (
-        <audio> 
-        <source src={this.state.audio} type="audio/mp3" className="audio"/> 
-        Your Browser Doesn't Support This Audio 
+        <audio>
+        <source src={this.state.audio} type="audio/mp3" className="audio"/>
+        Your Browser Doesn't Support This Audio
         </audio>
       )
     }
@@ -220,6 +224,5 @@ class FeelingRoom extends Component {
     )
   }
 }
-
 
 export default FeelingRoom

@@ -1,24 +1,23 @@
-import React from 'react';
-import { Component } from 'react'
-import './BreathingRoom.scss';
+import React, { Component } from 'react'
+import './BreathingRoom.scss'
 import { inhaleExhale } from './BreathingRoomAnimation.js'
 import { NavButton } from '../../StyledComponents.js'
 
 class BreathingRoom extends Component {
-  constructor(props){
+  constructor (props) {
     super(props)
-    this.state ={
+    this.state = {
       isBreathing: false
     }
   }
 
   clickHandler = () => {
-    this.setState({isBreathing: true})
+    this.setState({ isBreathing: true })
     inhaleExhale(this.props.mood.toLowerCase())
   }
 
-  render(){
-    let instructions = (
+  render () {
+    const instructions = (
       <section className='directions' data-testid='instructions'>
       <h1>Take a moment to breathe</h1>
       <p>Follow the animation, breathe in as it expands
